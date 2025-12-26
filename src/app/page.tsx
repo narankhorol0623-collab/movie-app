@@ -32,10 +32,12 @@ const carouselAPI = async () => {
 const Home = async () => {
   const { nowPlayingMoviesResults } = await carouselAPI();
 
+  const data = nowPlayingMoviesResults ?? [];
+
   return (
     <div className="w-full m-auto">
       <Header />
-      <Scroll movies={nowPlayingMoviesResults.slice(0, 5)} />
+      <Scroll movies={data.slice(0, 5)} />
       <MovieCard />
       <Footer />
     </div>
