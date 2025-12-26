@@ -27,7 +27,6 @@ const movieAPI = async () => {
 export const Popular = async () => {
   const { popularMoviesResults }: { popularMoviesResults: Movie[] } =
     await movieAPI();
-  console.log(popularMoviesResults);
 
   return (
     <div className="flex flex-wrap md:w-full w-93.75 md:justify-center md:space-x-8 md:pt-10">
