@@ -40,7 +40,7 @@ export const Scroll = ({ movies }: ScrollProps) => {
                         alt=""
                       />
                     </div>
-                    <div className="flex justify-between md:justify-center flex-col md:items-start md:pl-10 md:pt-100 md:text-white pt-5 pl-5 pr-5 pb-4 ">
+                    <div className="flex justify-between md:justify-center flex-col md:items-start md:pl-10 md:pt-70 md:text-white pt-5 pl-5 pr-5 pb-4 ">
                       <div className="">
                         <div className="text-sm">Now Playing</div>
                         <p className="text-xl text-shadow-xs font-semibold md:text-4xl md:font-extrabold">
