@@ -11,6 +11,43 @@ export type MovieHome = {
   overview: string;
   backdrop_path: string;
 };
+export const fetchfromPopular = async (category: string) => {
+  const responce = await fetch(
+    `https://api.themovieDB.org/3/movie/${category}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_MY_API_KEY}`,
+      },
+    }
+  );
+};
+export const fetchfromUpcoming = async (category: string) => {
+  const responce = await fetch(
+    `https://api.themovieDB.org/3/movie/${category}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_MY_API_KEY}`,
+      },
+    }
+  );
+};
+
+export const fetchfromTopRated = async (category: string) => {
+  const responce = await fetch(
+    `https://api.themovieDB.org/3/movie/${category}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_MY_API_KEY}`,
+      },
+    }
+  );
+};
 
 const carouselAPI = async () => {
   const responseNowPlaying = await fetch(
@@ -37,11 +74,10 @@ const Home = async () => {
   return (
     <div className="w-full m-auto">
       <Header />
-      <Scroll movies={data.slice(0, 5)} />
+      <Scroll movies={data.slice(0, 10)} />
       <MovieCard />
       <Footer />
     </div>
   );
 };
-
 export default Home;

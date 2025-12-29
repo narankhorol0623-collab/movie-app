@@ -56,7 +56,7 @@ export const Scroll = ({ movies }: ScrollProps) => {
                         />
                         {kino.vote_average.toFixed(1)}/10
                       </div>
-                      <div className=" text-xs pr-5 pl-5 pb-4 md:w-150 md:text-sm md:text-white ">
+                      <div className=" text-xs  md:w-150 md:text-sm md:text-white ">
                         {kino.overview}
                       </div>
                     </div>

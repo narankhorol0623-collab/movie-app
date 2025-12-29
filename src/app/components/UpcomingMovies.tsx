@@ -26,7 +26,7 @@ export const Upcoming = async () => {
   const { upcomingMoviesResults }: { upcomingMoviesResults: Movie[] } =
     await movieAPI();
   return (
-    <div className="flex flex-wrap md:w-full w-93.75 md:justify-center md:space-x-8">
+    <div className="flex flex-wrap md:w-full w-93.75 md:justify-center pt-3 md:space-x-8">
       <div className="flex flex-col gap-3">
         <div className="flex justify-evenly gap-20">
           <p className="md:text-2xl text-xl font-semibold">Upcoming Movies</p>
