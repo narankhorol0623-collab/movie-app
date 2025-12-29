@@ -5,10 +5,7 @@ import { ArrowUpIcon, Search } from "lucide-react";
 import {
   InputGroup,
   InputGroupAddon,
-  InputGroupButton,
   InputGroupInput,
-  InputGroupText,
-  InputGroupTextarea,
 } from "@/components/ui/input-group";
 
 export const Header = () => {
