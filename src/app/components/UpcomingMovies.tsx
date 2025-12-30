@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export type Movie = {
   title: string;
   od: string;
@@ -21,20 +23,40 @@ const movieAPI = async () => {
 
   return { upcomingMoviesResults };
 };
+export const fetchfromUpcoming = async (category: string) => {
+  const responce = await fetch(
+    `https://api.themovieDB.org/3/movie/${category}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_MY_API_KEY}`,
+      },
+    }
+  );
+  const upcomingFetch = await responce.json();
+  const fetchedPage = upcomingFetch.results;
+  return { fetchedPage };
+};
 
 export const Upcoming = async () => {
   const { upcomingMoviesResults }: { upcomingMoviesResults: Movie[] } =
     await movieAPI();
+  // const { fetchedPage }: { fetchedPage: Movie[] } = await movieAPI();
+
   return (
-    <div className="flex flex-wrap md:w-full w-93.75 md:justify-center pt-3 md:space-x-8">
+    <div className="flex flex-wrap md:w-full justify-center pt-3 md:space-x-8">
       <div className="flex flex-col gap-3">
         <div className="flex justify-evenly gap-20">
           <p className="md:text-2xl text-xl font-semibold">Upcoming Movies</p>
-          <button>See more ...</button>
+          <Link href="/category/upcomig" className="flex items-center gap-1">
+            <button className="">See more</button>
+            <img src="sum.svg" alt="" className="h-4 w-4" />
+          </Link>
         </div>
         <div className="flex flex-col gap-8">
-          <div className="flex flex-wrap  justify-center items-center">
-            <div className="p-5 flex flex-col md:flex-row gap-3">
+          <div className="flex flex-wrap gap-3 justify-center items-center">
+            <div className=" flex flex-col md:flex-row gap-3">
               {upcomingMoviesResults
                 .map((info) => {
                   return (

@@ -26,17 +26,17 @@ export const TopRated = async () => {
   const { topRatedMoviesResults }: { topRatedMoviesResults: Movie[] } =
     await movieAPI();
   return (
-    <div className="flex flex-wrap md:w-full w-93.75 md:justify-center md:space-x-8 md:pt-10">
+    <div className="flex flex-wrap w-full justify-center md:space-x-8 md:pt-10 pb-5">
       <div className="flex flex-col gap-3">
-        <div className="flex gap-20 justify-evenly">
+        <div className="flex gap-20 pt-3 justify-evenly">
           <p className="md:text-2xl text-xl text-shadow-lg font-semibold">
             Top Rated
           </p>
           <button>See more ...</button>
         </div>
         <div className="flex flex-col gap-8">
-          <div className="flex flex-wrap  justify-center items-center">
-            <div className="p-5 flex flex-col md:flex-row gap-3">
+          <div className="flex flex-wrap gap-3 justify-center items-center">
+            <div className=" flex flex-col md:flex-row gap-3">
               {topRatedMoviesResults
                 .map((info) => {
                   return (

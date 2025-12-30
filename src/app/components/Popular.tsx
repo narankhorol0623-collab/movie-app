@@ -1,4 +1,5 @@
 import { info } from "console";
+import Link from "next/link";
 
 export type Movie = {
   title: string;
@@ -29,17 +30,20 @@ export const Popular = async () => {
     await movieAPI();
 
   return (
-    <div className="flex flex-wrap md:w-full w-93.75 md:justify-center md:space-x-8 md:pt-10">
+    <div className="flex flex-wrap md:w-full justify-center md:space-x-8 md:pt-10 pt-5">
       <div className="flex flex-col gap-3">
         <div className="flex gap-20 justify-evenly">
           <p className="md:text-2xl text-xl text-shadow-lg font-semibold">
             Popular
           </p>
-          <button>see more</button>
+          <Link href="/category/upcoming" className="flex items-center gap-1">
+            <button className="">See more</button>
+            <img src="sum.svg" alt="" className="h-4 w-4" />
+          </Link>
         </div>
         <div className="flex flex-col gap-8">
-          <div className="flex flex-wrap  justify-center items-center">
-            <div className="p-5 flex flex-col md:flex-row gap-3">
+          <div className="flex flex-wrap gap-3 justify-center items-center">
+            <div className="  flex flex-col md:flex-row gap-3">
               {popularMoviesResults
                 .map((info) => {
                   return (
@@ -77,12 +81,12 @@ export const Popular = async () => {
                         alt=""
                         className="h-[233.1px] w-[157.5px] md:h-85 md:w-[229.5px] rounded-t-lg"
                       />
-                      <div className="flex flex-col font-bold pt-3 pl-1">
-                        <div className="flex">
+                      <div className="flex pt-3 pl-1 flex-col">
+                        <div className="flex font-bold ">
                           <img src="./star.png" alt="" className="w-4 h-4" />
                           {info.vote_average.toFixed(1)}/10
                         </div>
-                        <p className="text-sm">{info.title}</p>
+                        <p className="text-sm font-light">{info.title}</p>
                       </div>
                     </div>
                   );

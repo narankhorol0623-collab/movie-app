@@ -23,6 +23,7 @@ export const fetchfromPopular = async (category: string) => {
     }
   );
 };
+
 export const fetchfromUpcoming = async (category: string) => {
   const responce = await fetch(
     `https://api.themovieDB.org/3/movie/${category}`,
@@ -34,6 +35,9 @@ export const fetchfromUpcoming = async (category: string) => {
       },
     }
   );
+  // const upcomingFetch = await responce.json();
+  // const fetchedPage = upcomingFetch.results;
+  // return { fetchedPage };
 };
 
 export const fetchfromTopRated = async (category: string) => {
@@ -70,6 +74,7 @@ const Home = async () => {
   const { nowPlayingMoviesResults } = await carouselAPI();
 
   const data = nowPlayingMoviesResults ?? [];
+  // const movies: Movie[] = await fetchfromUpcoming("upcoming");
 
   return (
     <div className="w-full m-auto">

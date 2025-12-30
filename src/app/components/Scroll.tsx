@@ -31,7 +31,7 @@ export const Scroll = ({ movies }: ScrollProps) => {
         <CarouselContent>
           {movies.map((kino, index) => (
             <CarouselItem key={index}>
-              <div className="h-auto pb-5 md:w-full flex justify-center items-center ">
+              <div className=" pb-5 md:p-0 flex justify-center items-center ">
                 <div className="md:relative">
                   <div className="md:absolute">
                     <div className="block md:hidden">
