@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export type Movie = {
   title: string;
   od: string;
@@ -32,7 +34,13 @@ export const TopRated = async () => {
           <p className="md:text-2xl text-xl text-shadow-lg font-semibold">
             Top Rated
           </p>
-          <button>See more ...</button>
+          <Link
+            href={"../component/topRated"}
+            className="flex items-center gap-1"
+          >
+            <button>See more</button>
+            <img src="sum.svg" alt="" className="h-4 w-4" />
+          </Link>
         </div>
         <div className="flex flex-col gap-8">
           <div className="flex flex-wrap gap-3 justify-center items-center">

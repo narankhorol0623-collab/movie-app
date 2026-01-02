@@ -49,8 +49,8 @@ export const Upcoming = async () => {
       <div className="flex flex-col gap-3">
         <div className="flex justify-evenly gap-20">
           <p className="md:text-2xl text-xl font-semibold">Upcoming Movies</p>
-          <Link href="/category/upcomig" className="flex items-center gap-1">
-            <button className="">See more</button>
+          <Link href="/category/upcoming" className="flex items-center gap-1">
+            <button>See more</button>
             <img src="sum.svg" alt="" className="h-4 w-4" />
           </Link>
         </div>
