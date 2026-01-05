@@ -36,10 +36,12 @@ export const Popular = async () => {
           <p className="md:text-2xl text-xl text-shadow-lg font-semibold">
             Popular
           </p>
-          <Link href="/category/upcoming" className="flex items-center gap-1">
-            <button className="">See more</button>
-            <img src="sum.svg" alt="" className="h-4 w-4" />
-          </Link>
+          <button>
+            <Link href="/category/popular" className="flex items-center gap-1">
+              See more
+              <img src="sum.svg" alt="" className="h-4 w-4" />
+            </Link>
+          </button>
         </div>
         <div className="flex flex-col gap-8">
           <div className="flex flex-wrap gap-3 justify-center items-center">

@@ -33,12 +33,12 @@ export const Header = () => {
         <div className="flex gap-4">
           <div className="w-9 h-9 md:hidden flex border justify-center items-center rounded-md">
             <button>
-              <img src="./search.png" alt="" />
+              <img src="searchh.png" alt="" />
             </button>
           </div>
           <div className="w-9 h-9 flex border justify-center items-center rounded-md">
             <button>
-              <img src="./moon.png" alt="" />
+              <img src="sar.png" alt="" className="h-4 w-4" />
             </button>
           </div>
         </div>

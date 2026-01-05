@@ -34,10 +34,7 @@ export const TopRated = async () => {
           <p className="md:text-2xl text-xl text-shadow-lg font-semibold">
             Top Rated
           </p>
-          <Link
-            href={"../component/topRated"}
-            className="flex items-center gap-1"
-          >
+          <Link href="/category/top_rated" className="flex items-center gap-1">
             <button>See more</button>
             <img src="sum.svg" alt="" className="h-4 w-4" />
           </Link>

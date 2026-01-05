@@ -23,8 +23,8 @@ const movieAPI = async () => {
 
   return { upcomingMoviesResults };
 };
-export const fetchfromUpcoming = async (category: string) => {
-  const responce = await fetch(
+export const movieFromTMDB = async (category: string) => {
+  const responseMovies = await fetch(
     `https://api.themovieDB.org/3/movie/${category}`,
     {
       method: "GET",
@@ -34,9 +34,9 @@ export const fetchfromUpcoming = async (category: string) => {
       },
     }
   );
-  const upcomingFetch = await responce.json();
-  const fetchedPage = upcomingFetch.results;
-  return { fetchedPage };
+  const pageTwoAPIMovies = await responseMovies.json();
+  const pageTwoAPIMoviesResults = pageTwoAPIMovies.results;
+  return { pageTwoAPIMovies };
 };
 
 export const Upcoming = async () => {
