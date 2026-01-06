@@ -1,3 +1,4 @@
+import { info } from "console";
 import Link from "next/link";
 
 export type Movie = {
@@ -8,8 +9,8 @@ export type Movie = {
 };
 
 const movieAPI = async () => {
-  const responseUpcoming = await fetch(
-    "https://api.themoviedb.org/3/movie/upcoming?language=en-US@",
+  const responsePopular = await fetch(
+    "https://api.themoviedb.org/3/movie/popular?language=en-US@",
     {
       headers: {
         "Content-type": "application/json",
@@ -18,46 +19,34 @@ const movieAPI = async () => {
     }
   );
 
-  const upcomingMovies = await responseUpcoming.json();
-  const upcomingMoviesResults = upcomingMovies.results;
+  const popularMovies = await responsePopular.json();
+  const popularMoviesResults = popularMovies.results;
 
-  return { upcomingMoviesResults };
-};
-export const movieFromTMDB = async (category: string) => {
-  const responseMovies = await fetch(
-    `https://api.themovieDB.org/3/movie/${category}`,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.NEXT_PUBLIC_MY_API_KEY}`,
-      },
-    }
-  );
-  const pageTwoAPIMovies = await responseMovies.json();
-  const pageTwoAPIMoviesResults = pageTwoAPIMovies.results;
-  return { pageTwoAPIMovies };
+  return { popularMoviesResults };
 };
 
-export const Upcoming = async () => {
-  const { upcomingMoviesResults }: { upcomingMoviesResults: Movie[] } =
+export const Popular = async () => {
+  const { popularMoviesResults }: { popularMoviesResults: Movie[] } =
     await movieAPI();
-  // const { fetchedPage }: { fetchedPage: Movie[] } = await movieAPI();
 
   return (
-    <div className="flex flex-wrap md:w-full justify-center pt-3 md:space-x-8">
+    <div className="flex flex-wrap md:w-full justify-center pt-5">
       <div className="flex flex-col gap-3">
-        <div className="flex justify-evenly gap-20">
-          <p className="md:text-2xl text-xl font-semibold">Upcoming Movies</p>
-          <Link href="/category/upcoming" className="flex items-center gap-1">
-            <button>See more</button>
-            <img src="sum.svg" alt="" className="h-4 w-4" />
-          </Link>
+        <div className="flex gap-20 justify-evenly">
+          <p className="md:text-2xl text-xl text-shadow-lg font-semibold">
+            Popular
+          </p>
+          <button>
+            <Link href="/category/popular" className="flex items-center gap-1">
+              See more
+              <img src="sum.svg" alt="" className="h-4 w-4" />
+            </Link>
+          </button>
         </div>
         <div className="flex flex-col gap-8">
           <div className="flex flex-wrap gap-3 justify-center items-center">
-            <div className=" flex flex-col md:flex-row gap-3">
-              {upcomingMoviesResults
+            <div className="  flex flex-col md:flex-row gap-3">
+              {popularMoviesResults
                 .map((info) => {
                   return (
                     <div
@@ -70,7 +59,7 @@ export const Upcoming = async () => {
                         className="h-[233.1px] w-[157.5px] md:h-85 md:w-[229.5px] rounded-t-lg"
                       />
                       <div className="flex flex-col pt-3 pl-1">
-                        <div className="flex items-center font-semibold gap-1">
+                        <div className="flex items-center font-bold gap-1">
                           <img src="./star.png" alt="" className="w-4 h-4" />
                           {info.vote_average.toFixed(1)}/10
                         </div>
@@ -82,7 +71,7 @@ export const Upcoming = async () => {
                 .slice(0, 5)}
             </div>
             <div className="flex flex-col md:flex-row gap-3">
-              {upcomingMoviesResults
+              {popularMoviesResults
                 .map((info) => {
                   return (
                     <div
@@ -94,12 +83,12 @@ export const Upcoming = async () => {
                         alt=""
                         className="h-[233.1px] w-[157.5px] md:h-85 md:w-[229.5px] rounded-t-lg"
                       />
-                      <div className="flex flex-col pt-3 pl-1">
-                        <div className="flex items-center font-semibold gap-1">
+                      <div className="flex pt-3 pl-1 flex-col">
+                        <div className="flex font-bold ">
                           <img src="./star.png" alt="" className="w-4 h-4" />
                           {info.vote_average.toFixed(1)}/10
                         </div>
-                        <p className="text-sm">{info.title}</p>
+                        <p className="text-sm font-light">{info.title}</p>
                       </div>
                     </div>
                   );

@@ -1,7 +1,8 @@
-import Footer from "./components/Footer";
-import { Header } from "./components/Header";
-import { MovieCard } from "./components/MovieCard";
-import { Scroll } from "./components/Scroll";
+import Footer from "./[components]/Footer";
+import { Header } from "./[components]/Header";
+import { MovieCard } from "./[components]/MovieCard";
+import { Scroll } from "./[components]/Scroll";
+// import useSWR from "swr";
 
 export type MovieHome = {
   title: string;
@@ -11,47 +12,14 @@ export type MovieHome = {
   overview: string;
   backdrop_path: string;
 };
-// export const fetchfromPopular = async (category: string) => {
-//   const responce = await fetch(
-//     `https://api.themovieDB.org/3/movie/${category}`,
-//     {
-//       method: "GET",
-//       headers: {
-//         "Content-Type": "application/json",
-//         Authorization: `Bearer ${process.env.NEXT_PUBLIC_MY_API_KEY}`,
-//       },
-//     }
-//   );
-// };
 
-// export const fetchfromUpcoming = async (category: string) => {
-//   const responce = await fetch(
-//     `https://api.themovieDB.org/3/movie/${category}`,
-//     {
-//       method: "GET",
-//       headers: {
-//         "Content-Type": "application/json",
-//         Authorization: `Bearer ${process.env.NEXT_PUBLIC_MY_API_KEY}`,
-//       },
-//     }
-//   );
-//   // const upcomingFetch = await responce.json();
-//   // const fetchedPage = upcomingFetch.results;
-//   // return { fetchedPage };
-// };
+// function Profile() {
+//   const { data, error, isLoading } = useSWR("/api/user");
 
-// export const fetchfromTopRated = async (category: string) => {
-//   const responce = await fetch(
-//     `https://api.themovieDB.org/3/movie/${category}`,
-//     {
-//       method: "GET",
-//       headers: {
-//         "Content-Type": "application/json",
-//         Authorization: `Bearer ${process.env.NEXT_PUBLIC_MY_API_KEY}`,
-//       },
-//     }
-//   );
-// };
+//   if (error) return <div>failed to load</div>;
+//   if (isLoading) return <div>loading...</div>;
+//   return <div>hello {data.name}!</div>;
+// }
 
 const carouselAPI = async () => {
   const responseNowPlaying = await fetch(

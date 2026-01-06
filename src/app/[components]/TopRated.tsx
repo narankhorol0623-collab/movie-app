@@ -28,9 +28,9 @@ export const TopRated = async () => {
   const { topRatedMoviesResults }: { topRatedMoviesResults: Movie[] } =
     await movieAPI();
   return (
-    <div className="flex flex-wrap w-full justify-center md:space-x-8 md:pt-10 pb-5">
+    <div className="flex flex-wrap w-full justify-center md:space-x-8 pt-5 pb-5">
       <div className="flex flex-col gap-3">
-        <div className="flex gap-20 pt-3 justify-evenly">
+        <div className="flex gap-20 justify-evenly">
           <p className="md:text-2xl text-xl text-shadow-lg font-semibold">
             Top Rated
           </p>

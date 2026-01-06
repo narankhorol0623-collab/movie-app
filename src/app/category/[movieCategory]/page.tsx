@@ -34,12 +34,12 @@ export default async function Page({
     await movieFromTMDB(movieCategory);
 
   return (
-    <div className="">
+    <div className="pb-20">
       <div className="flex flex-col gap-4 items-center ">
         <div>
-          <p className="text-xl font-bold">{movieCategory}</p>
+          <p className="text-xl font-bold">{movieCategory} movies</p>
         </div>
-        <div className="flex flex-wrap justify-center items-center gap-4 ">
+        <div className="flex flex-wrap justify-center items-center gap-4 md:pb-10 pb-4">
           {pageTwoAPIMoviesResults.slice(0, 10).map((info) => {
             return (
               <div
@@ -51,15 +51,15 @@ export default async function Page({
                   alt=""
                   className="rounded-t-lg md:h-85 md:w-[229.73px] h-[233.1px] w-[157.5px]"
                 />
-                <div className="flex flex-col  md:p-4">
+                <div className="flex flex-col ">
                   <div className="">
-                    <div className="flex items-center gap-1 font-light">
+                    <div className="flex items-center gap-1 pl-3 pt-3 font-bold text-sm md:text-xl">
                       <img src="/star.png" alt="" className="h-4 w-4" />
                       {info.vote_average.toFixed(1)}/10
                     </div>
                   </div>
                   <div className="">
-                    <div className="text-wrap text-sm md:text-lg">
+                    <div className="text-wrap text-sm md:text-lg pl-3">
                       {info.title}
                     </div>
                   </div>

@@ -31,7 +31,7 @@ export const Scroll = ({ movies }: ScrollProps) => {
         <CarouselContent>
           {movies.map((kino, index) => (
             <CarouselItem key={index}>
-              <div className=" pb-5 md:p-0 flex justify-center items-center ">
+              <div className=" pb-5 md:p-0 flex justify-center items-center">
                 <div className="md:relative">
                   <div className="md:absolute">
                     <div className="block md:hidden">
@@ -40,7 +40,7 @@ export const Scroll = ({ movies }: ScrollProps) => {
                         alt=""
                       />
                     </div>
-                    <div className="flex justify-between md:justify-center flex-col md:items-start md:pl-10 md:pt-70 md:text-white pt-5 pl-5 pr-5 pb-4 ">
+                    <div className="flex justify-between md:justify-center flex-col md:items-start md:pl-10 md:pt-70 md:text-white pt-5 pl-5 pr-5 pb-4 gap-1 md:gap-8">
                       <div className="">
                         <div className="text-sm">Now Playing</div>
                         <p className="text-xl text-shadow-xs font-semibold md:text-4xl md:font-extrabold">
@@ -48,7 +48,7 @@ export const Scroll = ({ movies }: ScrollProps) => {
                         </p>
                       </div>
 
-                      <div className="flex md:text-white">
+                      <div className="flex md:text-white font-bold">
                         <img
                           src="./star.png"
                           alt=""
