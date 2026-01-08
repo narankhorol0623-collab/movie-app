@@ -1,3 +1,4 @@
+import { info } from "console";
 import Link from "next/link";
 
 export type Movie = {
@@ -5,6 +6,7 @@ export type Movie = {
   od: string;
   vote_average: number;
   poster_path: string;
+  id: string;
 };
 
 const movieAPI = async () => {
@@ -45,23 +47,30 @@ export const TopRated = async () => {
               {topRatedMoviesResults
                 .map((info) => {
                   return (
-                    <div
-                      key={info.title}
-                      className="md:w-[229.73px] md:h-109.75 h-[309.1px] w-[157.5px] bg-gray-50 shadow-2xl rounded-lg text-sm md:space-x-8 md:space-y-1"
+                    <Link
+                      key={info.id}
+                      href={`/movie/${info.id}`}
+                      className="bg-[#F4F4F5] rounded-lg cursor-pointer hover:scale-105 flex transition"
                     >
-                      <img
-                        src={`https://image.tmdb.org/t/p/original${info.poster_path}`}
-                        alt=""
-                        className="h-[233.1px] w-[157.5px] md:h-85 md:w-[229.5px] rounded-t-lg"
-                      />
-                      <div className="flex flex-col pt-3 pl-1">
-                        <div className="flex items-center font-bold">
-                          <img src="./star.png" alt="" className="w-4 h-4" />
-                          {info.vote_average.toFixed(1)}/10
+                      <div
+                        key={info.title}
+                        className="md:w-[229.73px] md:h-109.75 h-[309.1px] w-[157.5px] bg-gray-50 shadow-2xl rounded-lg text-sm md:space-x-8 md:space-y-1"
+                      >
+                        <img
+                          src={`https://image.tmdb.org/t/p/original${info.poster_path}`}
+                          alt=""
+                          className="h-[233.1px] w-[157.5px] md:h-85 md:w-[229.5px] rounded-t-lg"
+                        />
+
+                        <div className="flex flex-col pt-3 pl-1">
+                          <div className="flex items-center font-bold">
+                            <img src="./star.png" alt="" className="w-4 h-4" />
+                            {info.vote_average.toFixed(1)}/10
+                          </div>
+                          <p className="text-sm">{info.title}</p>
                         </div>
-                        <p className="text-sm">{info.title}</p>
                       </div>
-                    </div>
+                    </Link>
                   );
                 })
                 .slice(0, 5)}
@@ -70,23 +79,29 @@ export const TopRated = async () => {
               {topRatedMoviesResults
                 .map((info) => {
                   return (
-                    <div
-                      key={info.title}
-                      className="md:w-[229.73px] md:h-109.75 h-[309.1px] w-[157.5px] bg-gray-50 shadow-2xl rounded-lg text-sm md:space-x-8 md:space-y-1"
+                    <Link
+                      key={info.id}
+                      href={`/movie/${info.id}`}
+                      className="bg-[#F4F4F5] rounded-lg cursor-pointer hover:scale-105 flex transition"
                     >
-                      <img
-                        src={`https://image.tmdb.org/t/p/original${info.poster_path}`}
-                        alt=""
-                        className="h-[233.1px] w-[157.5px] md:h-85 md:w-[229.5px] rounded-t-lg"
-                      />
-                      <div className="flex flex-col pt-3 pl-1">
-                        <p className="flex items-center font-bold">
-                          <img src="./star.png" alt="" className="w-4 h-4" />
-                          {info.vote_average.toFixed(1)}/10
-                        </p>
-                        <p className="text-sm">{info.title}</p>
+                      <div
+                        key={info.title}
+                        className="md:w-[229.73px] md:h-109.75 h-[309.1px] w-[157.5px] bg-gray-50 shadow-2xl rounded-lg text-sm md:space-x-8 md:space-y-1"
+                      >
+                        <img
+                          src={`https://image.tmdb.org/t/p/original${info.poster_path}`}
+                          alt=""
+                          className="h-[233.1px] w-[157.5px] md:h-85 md:w-[229.5px] rounded-t-lg"
+                        />
+                        <div className="flex flex-col pt-3 pl-1">
+                          <p className="flex items-center font-bold">
+                            <img src="./star.png" alt="" className="w-4 h-4" />
+                            {info.vote_average.toFixed(1)}/10
+                          </p>
+                          <p className="text-sm">{info.title}</p>
+                        </div>
                       </div>
-                    </div>
+                    </Link>
                   );
                 })
                 .slice(5, 10)}

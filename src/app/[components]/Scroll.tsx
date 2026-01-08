@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/carousel";
 import { MovieHome } from "../page";
 import { Button } from "@/components/ui/button";
+import { useRef, useState } from "react";
 
 type ScrollProps = {
   movies: MovieHome[];
@@ -20,6 +21,24 @@ export const Scroll = ({ movies }: ScrollProps) => {
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true })
   );
+
+  // const NowPlaying = () => {
+  //   const [open, setOpen] = useState(false);
+  //   const [videoId, setVideoId] = useState<string | null>(null);
+  //   const [loading, setLoading] = useState(false);
+
+  //   const handleWatchTrailer = async (movieId: number) => {
+  //     setLoading(true);
+  //     setVideoId(null);
+  //     setOpen(true);
+  //     try {
+  //       const key = await getMovieTrailer(movieId);
+  //       setVideoId(key);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+  // };
 
   return (
     <div className="">
@@ -63,13 +82,13 @@ export const Scroll = ({ movies }: ScrollProps) => {
                     <div className="md:flex hidden md:absolute left-10">
                       <Button variant="outline" className="shadow-sm">
                         <img src="play.png" alt="" className="h-4 w-4" /> Watch
-                        Trailer🎟️
+                        Trailer
                       </Button>
                     </div>
                     <div className="md:hidden flex items bg-center pl-4">
                       <Button variant="outline" className="shadow-sm">
                         <img src="play.png" alt="" className="h-4 w-4" /> Watch
-                        Trailer 😜
+                        Trailer
                       </Button>
                     </div>
                   </div>

@@ -15,7 +15,7 @@ export const Header = () => {
       <div className="flex w-7xl h-9 justify-between items-center">
         <div className="flex space-x-2 justify-center items-center">
           <img src="/film.png" alt="" className="w-5 h-5" />
-          <Link href="http://localhost:3000">
+          <Link href="/">
             <p className="text-indigo-700 font-bold text-base">MovieHub</p>
           </Link>
         </div>
