@@ -60,6 +60,7 @@ export async function fetchCast(id: string) {
     }
   );
   const data = await res.json();
+
   return data.Cast;
 }
 export default async function MovieDetailPage({

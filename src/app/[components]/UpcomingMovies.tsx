@@ -7,6 +7,15 @@ export type Movie = {
   poster_path: string;
   id: string;
 };
+type MovieDetail = {
+  id: string;
+  title: string;
+  overview: string;
+  poster_path: string;
+  vote_average: number;
+  release_date: string;
+  runtime: number;
+};
 
 const movieAPI = async () => {
   const responseUpcoming = await fetch(
@@ -64,7 +73,7 @@ export const Upcoming = async () => {
                 .map((info) => {
                   return (
                     <Link
-                      key={info.id}
+                      key={(info.id, info.poster_path)}
                       href={`/movie/${info.id}`}
                       className="bg-[#F4F4F5] rounded-lg cursor-pointer hover:scale-105 flex transition"
                     >
