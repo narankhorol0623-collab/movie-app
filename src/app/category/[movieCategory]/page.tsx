@@ -1,3 +1,5 @@
+import { ArrowLeft, ArrowRight, Ellipsis } from "lucide-react";
+
 export type Movie = {
   title: string;
   od: string;
@@ -67,6 +69,25 @@ export default async function Page({
               </div>
             );
           })}
+        </div>
+        <div className="flex gap-8 pb-5">
+          <button className="flex items-center gap-2">
+            <ArrowLeft />
+            <p>Previous</p>
+          </button>
+          <div className="border flex items-center rounded-lg w-10 h-10">
+            <p>1</p>
+          </div>
+          <div className="border flex items-center rounded-lg w-10 h-10">
+            <p>2</p>
+          </div>
+          <div className="flex items-center">
+            <Ellipsis />
+          </div>
+          <button className="flex items-center gap-2">
+            <p>Next</p>
+            <ArrowRight />
+          </button>
         </div>
       </div>
     </div>
