@@ -71,8 +71,8 @@ export default async function MovieDetailPage({
   const { id } = await params;
   const movie: MovieDetail = await fetchFromTMDB(id);
   return (
-    <div className="max-w-5xl mx-auto px-4">
-      <div className="flex gap-8 p-20">
+    <div className="p-5 md:pr-10">
+      <div className="flex md:flex-row flex-col gap-8">
         <img
           className="rounded-lg md:w-75 md:h-112.5 h-37 w-25"
           src={
@@ -83,19 +83,31 @@ export default async function MovieDetailPage({
           alt={movie.title}
         />
 
-        <div className="md:col-span-2">
-          <h1 className="text-3xl font-bold mb-4">{movie.title}</h1>
-          <p className="text-gray-600 mb-4">{movie.overview}</p>
-          <p className="mb-2">
-            ⭐
-            {movie.vote_average !== undefined && movie.vote_average !== null
-              ? movie.vote_average.toFixed(1)
-              : "N/A"}
-            / 10
-          </p>
-          <p className="mb-2">📅 {movie.release_date}</p>
-          <p className="mb-2">⏱ {movie.runtime} min</p>
+        <div className="flex flex-col justify-evenly">
+          <div className="md:font-extrabold md:text-4xl font-bold text-lg ">
+            🎟️ {movie.title}
+          </div>
+          <div>
+            <div className="md:text-red-400 md:text-2xl font-bold">
+              Movie overview
+            </div>
+            <div className="md:text-xl text-sm">{movie.overview}</div>
+          </div>
+          <div className="flex flex-col gap-5 font-bold text-gray-400">
+            <div className="flex items-center gap-2">
+              ⭐ '
+              {movie.vote_average !== undefined && movie.vote_average !== null
+                ? movie.vote_average.toFixed(1)
+                : "N/A"}
+              / 10'
+            </div>
+            <div className="">📅 {movie.release_date}</div>
+            <div className="">⏱ {movie.runtime} min</div>
+          </div>
         </div>
+      </div>
+      <div className="md:text-3xl">
+        <p>More like this</p>
       </div>
     </div>
   );

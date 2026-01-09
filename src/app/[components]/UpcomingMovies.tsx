@@ -75,7 +75,7 @@ export const Upcoming = async () => {
                     <Link
                       key={(info.id, info.poster_path)}
                       href={`/movie/${info.id}`}
-                      className="bg-[#F4F4F5] rounded-lg cursor-pointer hover:scale-105 flex transition"
+                      className="bg-[#F4F4F5] rounded-lg cursor-pointer hover:scale-100 flex md:flex-row flex-col  transition"
                     >
                       <div
                         key={info.title}
