@@ -1,11 +1,12 @@
+import { Mail, PhoneIncoming, Popcorn } from "lucide-react";
 import React from "react";
 export default function Footer() {
   return (
     <div className="w-full bg-indigo-700 md:h-60 h-70 text-white md:flex flex-wrap md:justify-between p-4 pt-8 md:pt-10 md:pr-15 md:pl-15">
       <div className="flex flex-col gap-2 pb-7">
         <div className="flex items-center gap-1 text-xl">
-          <img src="white.png" alt="" className="h-6 w-6 " />
-          <p>MovieHub</p>
+          <Popcorn className="text-white h-6 w-6" />
+          <p className="font-bold">MovieHub</p>
         </div>
         <p className="text-gray-300">© 2024 MovieHub. All Rights Reserved.</p>
       </div>
@@ -15,14 +16,14 @@ export default function Footer() {
           <p className="md:text-xl text-lg">Contact Information</p>
           <p></p>
           <div className="flex items-center md:gap-4 gap-2">
-            <img src="message.png" alt="" className="h-6 w-6" />
+            <Mail className="w-6 h-6" />
             <div className="text-sm">
               <p>Email:</p>
               <p>Support@movieHub.com</p>
             </div>
           </div>
           <div className="flex items-center md:gap-4 gap-2">
-            <img src="call.png" alt="" className="h-6 w-6" />
+            <PhoneIncoming className="w-6 h-6" />
             <div className="text-sm">
               <p>Contact Us!</p>
               <p>+976 99674978</p>
