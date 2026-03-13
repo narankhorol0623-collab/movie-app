@@ -1,6 +1,6 @@
 "use client";
 import useSWR from "swr";
-import { ChangeEvent, Suspense, useCallback, useState } from "react";
+import { ChangeEvent, useCallback, useState } from "react";
 import { Search } from "lucide-react";
 
 import {
@@ -47,29 +47,27 @@ export const SearchButton = () => {
   };
 
   return (
-    <Suspense>
-      <InputGroup className="w-94.75 h-9 border relative rounded-md px-2">
-        <InputGroupInput
-          onChange={handleChange}
-          className="relative"
-          placeholder="Search..."
-          value={searchValue}
-        />
+    <InputGroup className="w-94.75 h-9 border relative rounded-md px-2">
+      <InputGroupInput
+        onChange={handleChange}
+        className="relative"
+        placeholder="Search..."
+        value={searchValue}
+      />
 
-        {searchValue && (
-          <SearchResult
-            setSearchValue={setSearchValue}
-            data={searchedResults}
-            isLoading={isLoading}
-            searchedResults={searchedResults}
-            searchValue={searchValue}
-          />
-        )}
-        <InputGroupAddon>
-          {isLoading}
-          <Search />
-        </InputGroupAddon>
-      </InputGroup>
-    </Suspense>
+      {searchValue && (
+        <SearchResult
+          setSearchValue={setSearchValue}
+          data={searchedResults}
+          isLoading={isLoading}
+          searchedResults={searchedResults}
+          searchValue={searchValue}
+        />
+      )}
+      <InputGroupAddon>
+        {isLoading}
+        <Search />
+      </InputGroupAddon>
+    </InputGroup>
   );
 };
