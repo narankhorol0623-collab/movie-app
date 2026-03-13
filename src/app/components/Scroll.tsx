@@ -19,26 +19,26 @@ type ScrollProps = {
 
 export const Scroll = ({ movies }: ScrollProps) => {
   const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: true })
+    Autoplay({ delay: 2000, stopOnInteraction: true }),
   );
 
-  // const NowPlaying = () => {
-  //   const [open, setOpen] = useState(false);
-  //   const [videoId, setVideoId] = useState<string | null>(null);
-  //   const [loading, setLoading] = useState(false);
+  const NowPlaying = () => {
+    const [open, setOpen] = useState(false);
+    const [videoId, setVideoId] = useState<string | null>(null);
+    const [loading, setLoading] = useState(false);
 
-  //   const handleWatchTrailer = async (movieId: number) => {
-  //     setLoading(true);
-  //     setVideoId(null);
-  //     setOpen(true);
-  //     try {
-  //       const key = await getMovieTrailer(movieId);
-  //       setVideoId(key);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-  // };
+    const handleWatchTrailer = async (movieId: number) => {
+      setLoading(true);
+      setVideoId(null);
+      setOpen(true);
+      try {
+        const key = await getMovieTrailer(movieId);
+        setVideoId(key);
+      } finally {
+        setLoading(false);
+      }
+    };
+  };
 
   return (
     <div className="">
@@ -110,3 +110,6 @@ export const Scroll = ({ movies }: ScrollProps) => {
     </div>
   );
 };
+function getMovieTrailer(movieId: number) {
+  throw new Error("Function not implemented.");
+}

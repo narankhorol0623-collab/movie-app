@@ -28,7 +28,7 @@ export async function fetchMovie(movieId: string): Promise<MovieDetail | null> {
           Authorization: `Bearer ${process.env.TDBM_API_KEY}`,
         },
         cache: "no-store",
-      }
+      },
     );
 
     if (!res.ok) {

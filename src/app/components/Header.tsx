@@ -2,12 +2,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, MoonStar, Popcorn, Search, SearchCode } from "lucide-react";
 import Link from "next/link";
-
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupInput,
-} from "@/components/ui/input-group";
+import { SearchButton } from "./SearchButton";
 
 export const Header = () => {
   return (
@@ -22,17 +17,12 @@ export const Header = () => {
           </Link>
         </div>
         <div className="md:flex justify-center items-center space-x-3 hidden">
-          <div className="flex w-27 h-9 border justify-center items-center gap-2 rounded-md">
+          <div className="flex  h-9 border justify-center items-center gap-2 rounded-md">
             <ArrowLeft />
-            <button>Genre</button>
+            <button className="w-30">Genre</button>
           </div>
-          <div className="flex w-94.75">
-            <InputGroup>
-              <InputGroupInput placeholder="Search..." />
-              <InputGroupAddon>
-                <Search />
-              </InputGroupAddon>
-            </InputGroup>
+          <div className="flex">
+            <SearchButton />
           </div>
         </div>
         <div className="flex gap-4">

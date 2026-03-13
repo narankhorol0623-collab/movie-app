@@ -1,5 +1,5 @@
-import React from "react";
-import trailer from "./trailer";
+// import React from "react";
+// import trailer from "./trailer";
 
 // import { Carousel, CarouselContent, CarouselMovieContent ,CarouselItem } from "@/components/ui/carousel";
 // import Autoplay from "embla-carousel-autoplay";
@@ -20,6 +20,5 @@ import trailer from "./trailer";
 //       </Carousel>
 //     </div>
 //   );
-// };
 
 // export default NowPlaying;

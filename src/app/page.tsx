@@ -1,7 +1,7 @@
-import Footer from "./[components]/Footer";
-import { Header } from "./[components]/Header";
-import { MovieCard } from "./[components]/MovieCard";
-import { Scroll } from "./[components]/Scroll";
+import Footer from "./components/Footer";
+import { Header } from "./components/Header";
+import { MovieCard } from "./components/MovieCard";
+import { Scroll } from "./components/Scroll";
 // import useSWR from "swr";
 
 export type MovieHome = {

@@ -33,10 +33,10 @@ export async function fetchFromTMDB(movieId: string) {
     `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,
     {
       headers: {
-        Authorization: `Bearer ${process.env.TDBM_API_KEY}`,
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_MY_API_KEY}`,
       },
       cache: "no-store",
-    }
+    },
   );
   const movieDetail = await res.json();
   return movieDetail;
@@ -46,10 +46,10 @@ export async function fetchSimilarMovie(id: number) {
     `https://api.themoviedb.org/3/movie/${id}?language=en-US`,
     {
       headers: {
-        Authorization: `Bearer ${process.env.TDBM_API_KEY}`,
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_MY_API_KEY}`,
       },
       cache: "no-store",
-    }
+    },
   );
   const data = await res.json();
   return data.SimilarMovie;
@@ -59,10 +59,10 @@ export async function fetchCast(id: number) {
     `https://api.themoviedb.org/3/movie/${id}?language=en-US`,
     {
       headers: {
-        Authorization: `Bearer ${process.env.TDBM_API_KEY}`,
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_MY_API_KEY}`,
       },
       cache: "no-store",
-    }
+    },
   );
   const data = await res.json();
 
@@ -79,11 +79,11 @@ export default async function MovieDetailPage({
   const similar: SimilarMovie = await fetchFromTMDB(id);
 
   return (
-    <div className="">
+    <div className="flex flex-col md:w-full justify-center">
       <div className="">
         <div className="flex gap-3">
           <img
-            className="rounded-lg md:w-72.5 md:h-107 h-37 w-25"
+            className="rounded-lg md:w-72.5 md:h-107 h-32 w-20"
             src={
               movie.poster_path
                 ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
@@ -92,7 +92,7 @@ export default async function MovieDetailPage({
             alt={movie.title}
           />
           <img
-            className="h-107 w-190"
+            className="md:flex hidden"
             src={
               movie.backdrop_path
                 ? `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`
@@ -103,15 +103,12 @@ export default async function MovieDetailPage({
         </div>
 
         <div className="flex flex-col justify-evenly">
-          <div className="md:font-extrabold md:text-4xl font-bold flex items-center gap-2 text-lg ">
+          <div className="md:font-extrabold md:text-4xl font-semibold flex items-center gap-2 text-lg ">
             <Clapperboard className="h-6 w-6" /> {movie.title}
           </div>
-          <div>
-            <div className="flex items-center gap-2">
-              <MessageSquare className="w-6 h-6 text-gray-400" />
-              <div className="md:text-red-400 md:text-2xl font-bold">
-                Movie overview
-              </div>
+          <div className="flex items-center gap-2">
+            <div className="md:text-red-400 md:text-2xl font-bold">
+              Movie overview
             </div>
             <div className="md:text-xl text-sm">{movie.overview}</div>
           </div>
@@ -128,8 +125,6 @@ export default async function MovieDetailPage({
           </div>
         </div>
       </div>
-      <div>{}</div>
-      {/* <div>{Cast.genres}</div> */}
       <div className="md:text-3xl">
         <p>More like this</p>
       </div>

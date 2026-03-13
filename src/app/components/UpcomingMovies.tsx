@@ -25,7 +25,7 @@ const movieAPI = async () => {
         "Content-type": "application/json",
         Authorization: `Bearer ${process.env.NEXT_PUBLIC_MY_API_KEY}`,
       },
-    }
+    },
   );
 
   const upcomingMovies = await responseUpcoming.json();
@@ -42,7 +42,7 @@ export const movieFromTMDB = async (category: string) => {
         "Content-Type": "application/json",
         Authorization: `Bearer ${process.env.NEXT_PUBLIC_MY_API_KEY}`,
       },
-    }
+    },
   );
   const pageTwoAPIMovies = await responseMovies.json();
   const pageTwoAPIMoviesResults = pageTwoAPIMovies.results;
@@ -62,7 +62,7 @@ export const Upcoming = async () => {
             Upcoming Movies
           </p>
           <Link href="/category/upcoming" className="flex items-center gap-1">
-            <button>See more</button>
+            <button>See more</button>.
             <img src="sum.svg" alt="" className="h-4 w-4" />
           </Link>
         </div>
