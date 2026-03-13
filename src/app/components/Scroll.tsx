@@ -110,6 +110,8 @@ export const Scroll = ({ movies }: ScrollProps) => {
     </div>
   );
 };
-function getMovieTrailer(movieId: number) {
-  throw new Error("Function not implemented.");
+async function getMovieTrailer(movieId: number) {
+  if (!movieId) return null;
+
+  return String(movieId);
 }
